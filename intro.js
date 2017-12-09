@@ -1,3 +1,6 @@
+var debug = false;
+//disable/enable debug console statements
+
 var randomStudent = function(){
     var SL = ["Leo", "Karina", "Adam", "Tmoi", "Khyber", "Alessandro", "Joyce", "Dasha"];
     var rannum = Math.floor(Math.random() * SL.length);
@@ -5,10 +8,12 @@ var randomStudent = function(){
 };
 
 var changeHeader = function(){
-    console.log("hover detected!");
+    if (debug)
+	console.log("hover detected!");
     header = document.getElementById("h");
     header.innerHTML = this.innerHTML;
-    console.log("header changed");
+    if(debug)
+	console.log("header changed");
 };
 
 var addRando = function(){
@@ -22,16 +27,20 @@ var addRando = function(){
 };
 
 var resetHeader = function(){
-    console.log("resetting header");
+    if(debug)
+	console.log("resetting header");
     header = document.getElementById("h");
     header.innerHTML = "Hello World!";
-    console.log("header reset completed");
+    if(debug)
+	console.log("header reset completed");
 }
 
 var remove = function(){
-    console.log("Trying to remove");
+    if(debug)
+	console.log("Trying to remove");
     this.remove();
-    console.log("removed");
+    if(debug)
+	console.log("removed");
 }
 
 var student = randomStudent();
@@ -40,7 +49,7 @@ var listItems = document.getElementsByTagName("li");
 theList.innerHTML += "<li>" + student + "</li>";
 
 var button = document.getElementById("b");
-button.addEventListener("click", addRando);
+button.addEventListener ("click", addRando);
 
 
 
