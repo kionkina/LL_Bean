@@ -1,6 +1,7 @@
 var debug = false;
 //disable/enable debug console statements
 
+
 var randomStudent = function(){
     var SL = ["Leo", "Karina", "Adam", "Tmoi", "Khyber", "Alessandro", "Joyce", "Dasha"];
     var rannum = Math.floor(Math.random() * SL.length);
@@ -38,15 +39,30 @@ var resetHeader = function(){
 var remove = function(){
     if(debug)
 	console.log("Trying to remove");
+        if(debug){
+	    console.log("before removing");
+	console.log(theList.innerText);
+    }
     this.remove();
+    if(debug){
+	console.log("after removing");
+	console.log(theList.innerText == "");
+    }
+    if (theList.innerText == ""){
+	header = document.getElementById("h");
+	header.innerHTML = "Hello World!";
+	// resetHeader doesn't work here, but retyping the fxn's body works
+    }
     if(debug)
 	console.log("removed");
 }
+
 
 var student = randomStudent();
 var theList = document.getElementById("thelist");
 var listItems = document.getElementsByTagName("li");
 theList.innerHTML += "<li>" + student + "</li>";
+
 
 var button = document.getElementById("b");
 button.addEventListener ("click", addRando);
@@ -64,8 +80,7 @@ for (var i = 0; i < listItems.length; i ++){
 };
 
 
-/* BUGS
 
-* header will not reset to "Hello World!" after the last element is removed.
 
-*/
+
+
