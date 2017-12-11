@@ -81,6 +81,43 @@ for (var i = 0; i < listItems.length; i ++){
 
 
 
+var addFib = function(n){
+    num = fibonacci(n);
+
+    var firstEl = document.createElement("li");
+    firstEl.innerHTML = num;
+    newList.appendChild(firstEl);
+}
+
+var newButton = document.createElement("button");
+newButton.setAttribute("id","fib"); 
+newButton.innerHTML= "fib button";
+    var newList = document.createElement("ol");
+bod = document.getElementsByTagName("body")[0];
+bod.appendChild(newList);
+bod.appendChild(newButton);
+newButton.addEventListener("click", function() { addFib(5);});
+
+console.log(newList[0]);
+
+//var addFib = function(){
+//    var num = fact(
+
+
+var fibonacci = function(n){
+    if (n==0){
+        return 0;
+    }
+    else if (n == 1){
+        return 1;
+    }
+    else {
+        return  fibonacci(n - 1) + fibonacci(n - 2);
+    }};
 
 
 
+
+
+
+// IMPORTANT: newList["lastElementChild"].innerText
