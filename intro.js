@@ -1,13 +1,15 @@
 var debug = false;
 //disable/enable debug console statements
 
-
+// returns a random student
 var randomStudent = function(){
     var SL = ["Leo", "Karina", "Adam", "Tmoi", "Khyber", "Alessandro", "Joyce", "Dasha"];
     var rannum = Math.floor(Math.random() * SL.length);
     return(SL[rannum]);
 };
 
+
+// changes the header
 var changeHeader = function(){
     if (debug)
 	console.log("hover detected!");
@@ -17,6 +19,8 @@ var changeHeader = function(){
 	console.log("header changed");
 };
 
+
+//adds a random student to first list
 var addRando = function(){
     var theList = document.getElementById("thelist");
     var li = document.createElement("li");
@@ -27,6 +31,8 @@ var addRando = function(){
     theList.appendChild(li);
 };
 
+
+//changes the header back to "Hello World"
 var resetHeader = function(){
     if(debug)
 	console.log("resetting header");
@@ -36,6 +42,8 @@ var resetHeader = function(){
 	console.log("header reset completed");
 }
 
+
+//removes an element from the first list
 var remove = function(){
     if(debug)
 	console.log("Trying to remove");
@@ -61,9 +69,9 @@ var remove = function(){
 var student = randomStudent();
 var theList = document.getElementById("thelist");
 var listItems = document.getElementsByTagName("li");
-theList.innerHTML += "<li>" + student + "</li>";
+//theList.innerHTML += "<li>" + student + "</li>";
 
-
+// linking button to addRando
 var button = document.getElementById("b");
 button.addEventListener ("click", addRando);
 
@@ -80,8 +88,9 @@ for (var i = 0; i < listItems.length; i ++){
 };
 
 
-
+// function adds next fib # to the second list
 var addFib = function(){
+    // chilNodes.length returns the length of the list
     n = newList["childNodes"].length;
     num = fibonacci(n);
     var firstEl = document.createElement("li");
@@ -89,16 +98,22 @@ var addFib = function(){
     newList.appendChild(firstEl);
 }
 
+
+bod = document.getElementsByTagName("body")[0];
+
+//new button is created
 var newButton = document.createElement("button");
 newButton.setAttribute("id","fib"); 
 newButton.innerHTML= "fib button";
-var newList = document.createElement("ol");
-bod = document.getElementsByTagName("body")[0];
-bod.appendChild(newList);
+bod.innerHTML += "<br> <br>";
 bod.appendChild(newButton);
-newButton.addEventListener("click", addFib);
 
-console.log(newList[0]);
+//newList is created 
+var newList = document.createElement("ol");
+bod.appendChild(newList);
+
+// new button linked to addFib
+newButton.addEventListener("click", addFib);
 
 
 var fibonacci = function(n){
